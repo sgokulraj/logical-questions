@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of two numbers</title>
+</head>
+
+<body>
+    <!-- 2.	Write a JavaScript program to calculate the sum of two numbers entered by the user.
+        Sample Input:5,10
+        Sample output:15 -->
+
+    <h1>To find the sum of two numbers</h1>
+    <p id="result"></p>
+    <script>
+        let result = document.querySelector("#result")
+        let num1 = +prompt("Enter first number")
+        let num2 = +prompt("Enter second number")
+
+        if (isNaN(num1) || isNaN(num2)) {
+            result.textContent = "Enter only numbers"
+        } else {
+            result.textContent = `The sum of ${num1} and ${num2} is ${num1 + num2}`
+        }
+    </script>
+</body>
+
+</html>

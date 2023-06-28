@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Longest word</title>
+</head>
+
+<body>
+    <!-- 7.	Write a JavaScript program to find the longest word in a sentence.
+        Sample Input: The quick brown fox jumps over the lazy dog.
+        Sample Output:quick. -->
+
+    <h1>To find the longest word in a sentence</h1>
+    <p id="output"></p>
+    <script>
+        let output = document.querySelector("#output")
+        let str = prompt("enter a string", "hello");
+        let array = str.split(' ');
+
+        Method-1
+        let str2='';
+        let result =0;
+        for(let i = 0 ; i <array.length ; i++){
+            if(result < array[i].length){
+                result = array[i].length;
+                str2=array[i];
+            }
+
+        }
+        output.textContent = `The longest word is ${str2}. It has ${result} letters`
+
+        //Method-2
+        // let length = 0;
+        // let str2 ="";
+        // for(let word of array){
+        //     if(word.length > length){
+        //         length = word.length;
+        //          str2 = word
+        //     }
+        // }
+        // output.textContent = `The longest word is ${str2}. It has ${length} letters`
+
+
+    </script>
+</body>
+
+</html>

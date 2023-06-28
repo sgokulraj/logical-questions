@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Words</title>
+</head>
+
+<body>
+    <!-- 8.	Write a JavaScript function to reverse the order of words in a sentence while maintaining the order of punctuation marks.
+        Sample Input: Hello, world!
+        Sample Ouput: world, Hello! -->
+    
+
+    <h1>To reverse the order of words in a sentence while maintaining the order of punctuation marks</h1>
+    <p id="input"></p>
+    <p id="result"></p>
+
+    <script>
+        let input = document.querySelector("#input")
+        let result = document.querySelector("#result")
+        let inputString = prompt("Enter the string to be reversed")
+        let regexp = /[,.;:!-?]/g
+        let inputArr = inputString.split(" ")
+        let resultArr = []
+        let resultStr = ""
+
+        //removing punctuations and reversing the sentence and pushing into new array named "resultArr"
+        for (let i = inputArr.length - 1; i >= 0; i--) {
+            if (inputArr[i].match(regexp)) {
+                resultArr.push(inputArr[i].substr(0, inputArr[i].length - 1))
+            } else {
+                resultArr.push(inputArr[i])
+            }
+        }
+
+        //converting resultArr into string and also adding punctuations at the place where original string had
+        let punctuation = [...inputString.matchAll(regexp)];
+        let j = 0;
+        for (let i = 0; i < inputArr.length; i++) {
+            if (inputArr[i].match(regexp)) {
+                resultStr = resultStr + resultArr[i] + punctuation[j] + " "
+                j++;
+            } else {
+                resultStr = resultStr + resultArr[i] + " ";
+            }
+        }
+
+        input.textContent = `Entered string => ${inputString} `
+        result.textContent = `Result => ${resultStr}`;
+    </script>
+</body>
+
+</html>

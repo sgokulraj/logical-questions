@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validate Url</title>
+</head>
+
+<body>
+    <!-- 6. Write a JavaScript function to check if a given string is a valid URL.
+            Sample Input: ("https://www.example.com");
+            Sample Output:true -->
+
+
+    <h1>To check if a given string is a valid URL.</h1>
+    <p id="result"></p>
+    <script>
+        function validate(string) {
+            try {
+                new URL(string)
+                return true
+            } catch {
+                return false
+            }
+        }
+        let urlStr = prompt("Enter the string to validate it as URL")
+        let result = document.querySelector("#result")
+        if (validate(urlStr)) {
+            result.textContent = `The given string - ${urlStr} - is a valid URL`
+        } else {
+            result.textContent = `The given string - ${urlStr} - is an invalid URL`
+        }
+    </script>
+</body>
+
+</html>

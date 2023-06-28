@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum of all multiples of 3 or 5</title>
+</head>
+
+<body>
+    <!-- 5.	Write a JavaScript program to find the sum of all multiples of 3 or 5 below a given number.
+        Sample Input:10
+        Sample output:23 -->
+
+    <h1>To find the sum of all multiples of 3 or 5 below a given number</h1>
+    <p id="result"></p>
+    <script>
+        let result = document.querySelector("#result");
+        let number = +prompt("Enter a number");
+        let sum = 0
+
+        if (isNaN(number)) {
+            result.textContent = "Enter only numbers"
+        } else {
+            for (let i = 1; i < number; i++) {
+                if (i % 3 == 0 || i % 5 == 0) {
+                    sum = sum + i
+                }
+            }
+            result.textContent = `The sum of all multiples of 3 or 5 below the number ${number} is ${sum}`
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Possible Sum combinations</title>
+</head>
+
+<body>
+    <!-- 9.	Write a JavaScript program to find the number of possible combinations given a set of numbers and a target sum.
+        Sample Input:( 2, 4, 6, 8], 10);
+        Sample Ouput: 3 -->
+
+    <h1>To find the number of possible combinations given a set of numbers and target sum</h1>
+    <div id="result">
+        <p><Strong>Different Combinations</Strong></p>
+    </div>
+    <p id="count"></p>
+    <script>
+        let arr = [2, 3, 5, 6, 8, 10]
+        let target = 10;
+        let count = 0;
+        let resultArr = []
+        let result = document.querySelector("#result")
+
+        for (let i = 0; i < arr.length; i++) {
+            let sum = 0;
+            let k = 0;
+            sum = sum + arr[i]
+            resultArr.push(arr[i])
+
+            for (let j = 0; j < arr.length; j++) {
+                if (i !== j) {
+                    sum = sum + arr[j]
+                    resultArr.push(arr[j])
+                    if (sum > target) {
+                        k = j
+                        resultArr = []
+                        break
+                    }
+                    if (sum == target) {
+                        count++
+                        k = j + 1
+                        //dom manipulation
+                        let p = document.createElement("p")
+                        p.textContent = resultArr
+                        result.append(p)
+                        resultArr = []
+                        break
+                    }
+                }
+            }
+            while (arr.length > k) {
+                sum = arr[i];
+                sum = sum + arr[k];
+                if (arr[i] !== arr[k]) {
+                    if (sum == target) {
+                        resultArr.push(arr[i])
+                        resultArr.push(arr[k])
+                        count++
+                        //dom manipulation
+                        let p = document.createElement("p")
+                        p.textContent = resultArr
+                        result.append(p)
+                        resultArr = []
+                        break;
+                    }
+                    if (sum > target) {
+                        resultArr = []
+                        break
+                    }
+                }
+                k++;
+            }
+        }
+
+        //dom manipulation
+        let counting = document.querySelector("#count")
+        counting.textContent = `Number of possible combinations = ${count}`
+    </script>
+</body>
+
+</html>

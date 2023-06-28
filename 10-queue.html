@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Queue</title>
+</head>
+
+<body>
+    <!-- 10.	Write a JavaScript program to implement a queue data structure using an array.
+        Sample Input: const queue = new Queue();
+        queue.enqueue(1);
+        queue.enqueue(2);
+        queue.dequeue();
+        Sample Output:[2] -->
+
+    <h1>To implement Queue data structure using an array</h1>
+    <p>Length of the queue is 10</p>
+    <label for="input">Enter a item and press Enqueue button to place the item inside Queue</label>
+    <br />
+    <input type="text" id="input" />
+    <button id="enqueue">Enqueue</button>
+    <button id="dequeue">Dequeue</button>
+    <p id="result"></p>
+    <p id="status"></p>
+    <script>
+        let item = document.querySelector("#input")
+        let status = document.querySelector("#status")
+        let result = document.querySelector("#result")
+        let queue = []
+        let enqueue = document.querySelector("#enqueue")
+        let dequeue = document.querySelector("#dequeue")
+        dequeue.disabled = true;
+        status.textContent = "Queue is Empty"
+
+        enqueue.addEventListener("click", () => {
+            dequeue.disabled = false
+            if (queue.length < 10) {
+                queue.push(item.value)
+                item.focus()
+                item.value = ""
+                result.textContent = `[${queue}]`
+                status.textContent = ""
+            } else {
+                status.textContent = "Queue overflows"
+                enqueue.disabled = true
+                item.disabled = true
+            }
+        })
+
+        dequeue.addEventListener("click", () => {
+            if (queue.length !== 0) {
+                enqueue.disabled = false
+                item.disabled = false
+                queue.shift()
+                item.focus()
+                item.value = ""
+                result.textContent = `[${queue}]`
+                status.textContent = ""
+            } else {
+                status.textContent = "Queue is empty"
+                dequeue.disabled = true
+            }
+        })
+    </script>
+</body>
+
+</html>

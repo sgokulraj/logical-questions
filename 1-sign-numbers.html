@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign-numbers</title>
+
+</head>
+
+<body>
+    <!-- 1.	Write a JavaScript program to check if a given number is positive, negative, or zero.
+            Sample Input:5
+            Sample Output:Positive. -->
+
+    <h1>Checking whether the number is positive or negative</h1>
+    <p id="result"></p>
+    <script>
+        let result = document.querySelector("#result")
+        let number = +prompt("Enter a number", 0);
+
+        if (number == 0) {
+            result.textContent = `You have entered zero`;
+        } else if (number > 0) {
+            result.textContent = `You have entered postive number and the number is +${number}`;
+        } else if (number < 0) {
+            result.textContent = `You have entered negative number and the number is ${number}`;
+        } else {
+            result.textContent = "Enter only numbers";
+        }
+
+    </script>
+</body>
+
+</html>

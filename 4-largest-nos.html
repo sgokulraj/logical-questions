@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Largest-Number</title>
+</head>
+
+<body>
+    <!-- 4.	Write a JavaScript program to find the largest number among three numbers entered by the user.
+        Sample Input:5,10,3
+        Sample output:10 -->
+
+    <h1>To find largest of three numbers</h1>
+    <p id="result"></p>
+    <script>
+        let result = document.querySelector("#result")
+        let num1 = +prompt("Enter first number", 1);
+        let num2 = +prompt("Enter second number", 1);
+        let num3 = +prompt("Enter third number", 1);
+        if (isNaN(num1) || isNaN(num2) || isNaN(num3)) {
+            result.textContent = "Enter only numbers"
+        } else if ((num1 > num2) && (num1 > num3)) {
+            result.textContent = `${num1} is the largest among all`
+        } else if ((num2 > num1) && (num2 > num3)) {
+            result.textContent =`${num2} is the largest among all`
+        } else if ((num3 > num1) && (num3 > num2)) {
+            result.textContent = `${num3} is the largest among all`
+        } else {
+            result.textContent = "Either of the numbers are equal OR all numbers are equal"
+        } 
+    </script>
+</body>
+
+</html>

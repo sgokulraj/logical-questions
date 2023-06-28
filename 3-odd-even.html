@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odd-Even</title>
+
+</head>
+
+<body>
+    <!-- 3.	Write a JavaScript function to check if a given number is even or odd.
+        Sample Input:10
+        Sample output:even -->
+
+    <h1>To check if a given number is Odd or Even</h1>
+    <p id="result"></p>
+    <script>
+        let result = document.querySelector("#result");
+        let number = prompt("Enter first number", 1);
+        if (number.includes(".")) {
+            result.textContent = "Enter only integers"
+        } else {
+            let output = Number(number);
+            ((isNaN(output)) ? result.textContent = 'Enter only numbers' :
+                ((output % 2 == 0) ? result.textContent = `The number (${output}) is Even` :
+                    result.textContent = `The number (${output}) is Odd`))
+        }
+    </script>
+</body>
+
+</html>
